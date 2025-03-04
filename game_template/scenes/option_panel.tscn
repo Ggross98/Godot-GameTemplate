@@ -1,0 +1,126 @@
+[gd_scene load_steps=9 format=3 uid="uid://d3cx2qnoetlnw"]
+
+[ext_resource type="Script" path="res://scripts/ui/OptionPanel.cs" id="1_2mpqn"]
+[ext_resource type="Script" path="res://scripts/ui/ResolutionButton.cs" id="2_c5svi"]
+[ext_resource type="Texture2D" uid="uid://drxbn5fudwcnq" path="res://assets/ui/T_0_empty_.png" id="3_636gc"]
+[ext_resource type="Texture2D" uid="uid://bhat4q43ojvkq" path="res://assets/ui/T_11_no_.png" id="4_hp0ku"]
+[ext_resource type="Texture2D" uid="uid://y43o0kc6wwpy" path="res://assets/ui/T_5_column_sound2_.png" id="5_c8jcy"]
+[ext_resource type="Texture2D" uid="uid://dxw08saaxrold" path="res://assets/ui/T_2_column_cross_.png" id="6_6q8rj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1fvph"]
+bg_color = Color(0.196078, 0.196078, 0.196078, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pypxj"]
+font_size = 50
+
+[node name="OptionPanel" type="Panel" node_paths=PackedStringArray("resolutionButton", "musicVolumeSlider", "soundVolumeSlider", "fullScreenButton", "musicMuteButton", "soundMuteButton")]
+offset_top = 202.0
+offset_right = 1920.0
+offset_bottom = 1002.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1fvph")
+script = ExtResource("1_2mpqn")
+resolutionButton = NodePath("VBoxContainer/Resolution/ResolutionButton")
+musicVolumeSlider = NodePath("VBoxContainer/MusicVolume/HSlider")
+soundVolumeSlider = NodePath("VBoxContainer/SoundVolume/HSlider")
+fullScreenButton = NodePath("VBoxContainer/Fullscreen/Toggle")
+musicMuteButton = NodePath("VBoxContainer/MusicVolume/Toggle")
+soundMuteButton = NodePath("VBoxContainer/SoundVolume/Toggle")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 207.0
+offset_top = 110.0
+offset_right = 557.0
+offset_bottom = 660.0
+theme_override_constants/separation = 50
+
+[node name="Resolution" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Resolution"
+label_settings = SubResource("LabelSettings_pypxj")
+vertical_alignment = 1
+
+[node name="ResolutionButton" type="OptionButton" parent="VBoxContainer/Resolution"]
+layout_mode = 0
+offset_left = 600.0
+offset_top = -1.0
+offset_right = 1000.0
+offset_bottom = 99.0
+theme_override_font_sizes/font_size = 50
+alignment = 1
+script = ExtResource("2_c5svi")
+
+[node name="Fullscreen" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Fullscreen"
+label_settings = SubResource("LabelSettings_pypxj")
+vertical_alignment = 1
+
+[node name="Toggle" type="TextureButton" parent="VBoxContainer/Fullscreen"]
+layout_mode = 0
+offset_left = 600.0
+offset_right = 700.0
+offset_bottom = 100.0
+toggle_mode = true
+texture_normal = ExtResource("3_636gc")
+texture_pressed = ExtResource("4_hp0ku")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="MusicVolume" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Music Volume"
+label_settings = SubResource("LabelSettings_pypxj")
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/MusicVolume"]
+layout_mode = 0
+offset_left = 600.0
+offset_right = 1200.0
+offset_bottom = 100.0
+max_value = 1.0
+step = 0.0
+value = 0.5
+ticks_on_borders = true
+
+[node name="Toggle" type="TextureButton" parent="VBoxContainer/MusicVolume"]
+layout_mode = 0
+offset_left = 1278.0
+offset_right = 1378.0
+offset_bottom = 100.0
+toggle_mode = true
+texture_normal = ExtResource("5_c8jcy")
+texture_pressed = ExtResource("6_6q8rj")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="SoundVolume" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Sound Volume"
+label_settings = SubResource("LabelSettings_pypxj")
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/SoundVolume"]
+layout_mode = 0
+offset_left = 600.0
+offset_right = 1200.0
+offset_bottom = 100.0
+max_value = 1.0
+step = 0.0
+value = 0.5
+ticks_on_borders = true
+
+[node name="Toggle" type="TextureButton" parent="VBoxContainer/SoundVolume"]
+layout_mode = 0
+offset_left = 1278.0
+offset_right = 1378.0
+offset_bottom = 100.0
+toggle_mode = true
+texture_normal = ExtResource("5_c8jcy")
+texture_pressed = ExtResource("6_6q8rj")
+ignore_texture_size = true
+stretch_mode = 0

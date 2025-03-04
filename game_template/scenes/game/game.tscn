@@ -1,0 +1,129 @@
+[gd_scene load_steps=9 format=3 uid="uid://b00fron1nsucu"]
+
+[ext_resource type="Script" path="res://scripts/scenes/Game.cs" id="1_b1ya7"]
+[ext_resource type="PackedScene" uid="uid://enxwj3m6n8w4" path="res://scenes/main_menu.tscn" id="2_qf2ok"]
+[ext_resource type="Script" path="res://scripts/ui/PausePanel.cs" id="2_t5eu8"]
+[ext_resource type="PackedScene" uid="uid://d3cx2qnoetlnw" path="res://scenes/option_panel.tscn" id="3_ludgr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ikkcl"]
+font_size = 80
+
+[sub_resource type="FontFile" id="FontFile_6a0l0"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/50/0/ascent = 0.0
+cache/0/50/0/descent = 0.0
+cache/0/50/0/underline_position = 0.0
+cache/0/50/0/underline_thickness = 0.0
+cache/0/50/0/scale = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ckiqj"]
+bg_color = Color(0.18359, 0.18359, 0.18359, 1)
+
+[sub_resource type="Theme" id="Theme_8qjmt"]
+default_font_size = 50
+
+[node name="Game" type="Node2D" node_paths=PackedStringArray("pauseButton", "pausePanel")]
+script = ExtResource("1_b1ya7")
+mainMenu = ExtResource("2_qf2ok")
+pauseButton = NodePath("TopUI/PauseButton")
+pausePanel = NodePath("PausePanel")
+
+[node name="TopUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Title" type="Label" parent="TopUI"]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 1920.0
+offset_bottom = 150.0
+text = "Game"
+label_settings = SubResource("LabelSettings_ikkcl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PauseButton" type="Button" parent="TopUI"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 100.0
+theme_override_fonts/font = SubResource("FontFile_6a0l0")
+theme_override_font_sizes/font_size = 50
+text = "Pause"
+
+[node name="PausePanel" type="Panel" parent="." node_paths=PackedStringArray("resumeButton", "restartButton", "optionButton", "quitButton", "backOptionButton", "optionPanel")]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ckiqj")
+script = ExtResource("2_t5eu8")
+resumeButton = NodePath("Buttons/ResumeButton")
+restartButton = NodePath("Buttons/RestartButton")
+optionButton = NodePath("Buttons/OptionButton")
+quitButton = NodePath("Buttons/QuitButton")
+backOptionButton = NodePath("OptionPanel/BackButton")
+optionPanel = NodePath("OptionPanel")
+
+[node name="Buttons" type="VBoxContainer" parent="PausePanel"]
+layout_mode = 0
+offset_left = 760.0
+offset_top = 326.0
+offset_right = 1160.0
+offset_bottom = 926.0
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="ResumeButton" type="Button" parent="PausePanel/Buttons"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme = SubResource("Theme_8qjmt")
+text = "Resume"
+
+[node name="RestartButton" type="Button" parent="PausePanel/Buttons"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme = SubResource("Theme_8qjmt")
+text = "Restart"
+
+[node name="OptionButton" type="Button" parent="PausePanel/Buttons"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme = SubResource("Theme_8qjmt")
+text = "Option"
+
+[node name="QuitButton" type="Button" parent="PausePanel/Buttons"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme = SubResource("Theme_8qjmt")
+text = "Quit"
+
+[node name="Title" type="Label" parent="PausePanel"]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 1920.0
+offset_bottom = 150.0
+text = "Pause"
+label_settings = SubResource("LabelSettings_ikkcl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionPanel" parent="PausePanel" instance=ExtResource("3_ludgr")]
+visible = false
+layout_mode = 0
+offset_top = 201.0
+offset_bottom = 1001.0
+
+[node name="BackButton" type="Button" parent="PausePanel/OptionPanel"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 0
+offset_left = 1659.0
+offset_top = 43.0
+offset_right = 1859.0
+offset_bottom = 143.0
+theme = SubResource("Theme_8qjmt")
+text = "Back"

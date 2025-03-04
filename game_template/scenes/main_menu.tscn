@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://enxwj3m6n8w4"]
+
+[ext_resource type="Script" path="res://scripts/scenes/MainMenu.cs" id="1_phssx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c4idi"]
+font_size = 80
+
+[sub_resource type="LabelSettings" id="LabelSettings_ydhf2"]
+font_size = 50
+
+[sub_resource type="Theme" id="Theme_4esch"]
+default_font_size = 50
+
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("startButton", "optionButton", "quitButton")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_phssx")
+startButton = NodePath("Buttons/StartButton")
+optionButton = NodePath("Buttons/OptionButton")
+quitButton = NodePath("Buttons/QuitButton")
+
+[node name="Background" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 1920.0
+offset_bottom = 150.0
+text = "Title"
+label_settings = SubResource("LabelSettings_c4idi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Subtitle" type="Label" parent="Title"]
+layout_mode = 0
+offset_top = 73.0
+offset_right = 1920.0
+offset_bottom = 183.0
+text = "Subtitle"
+label_settings = SubResource("LabelSettings_ydhf2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 760.0
+offset_top = 326.0
+offset_right = 1160.0
+offset_bottom = 926.0
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="StartButton" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme = SubResource("Theme_4esch")
+text = "Start"
+
+[node name="OptionButton" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme = SubResource("Theme_4esch")
+text = "Option"
+
+[node name="QuitButton" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme = SubResource("Theme_4esch")
+text = "Quit"
