@@ -5,6 +5,7 @@ Currently, most of the Godot tutorials and templates are developed using gdscrip
   ![](screenshots/menu.png)
     
 * An option menu for video and audio settings.
+* AudioManager for music and sound effects.
 * Save and load the options as .ini configuration file.
   ![](screenshots/options.png)
     
