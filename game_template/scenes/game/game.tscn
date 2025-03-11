@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://b00fron1nsucu"]
 
-[ext_resource type="Script" path="res://scripts/scenes/Game.cs" id="1_b1ya7"]
+[ext_resource type="Script" uid="uid://dwrphyiyxbew8" path="res://scripts/scenes/Game.cs" id="1_b1ya7"]
 [ext_resource type="PackedScene" uid="uid://enxwj3m6n8w4" path="res://scenes/main_menu.tscn" id="2_qf2ok"]
-[ext_resource type="Script" path="res://scripts/ui/PausePanel.cs" id="2_t5eu8"]
+[ext_resource type="Script" uid="uid://dqemowvmy4b47" path="res://scripts/ui/PausePanel.cs" id="2_t5eu8"]
 [ext_resource type="PackedScene" uid="uid://d3cx2qnoetlnw" path="res://scenes/option_panel.tscn" id="3_ludgr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ikkcl"]
