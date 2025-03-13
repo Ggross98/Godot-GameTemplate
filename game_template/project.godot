@@ -17,9 +17,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-AudioManager="*res://scripts/utils/AudioManager.cs"
-VideoManager="*res://scripts/utils/VideoManager.cs"
-ConfigManager="*res://scripts/utils/ConfigManager.cs"
+AudioManager="*res://scripts/autoload/AudioManager.cs"
+VideoManager="*res://scripts/autoload/VideoManager.cs"
+ConfigManager="*res://scripts/autoload/ConfigManager.cs"
+SceneManager="*res://scripts/autoload/SceneManager.cs"
 
 [display]
 

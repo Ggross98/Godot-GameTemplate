@@ -11,18 +11,10 @@ public partial class MainMenu : Control
     {
         base._Ready();
 
-		startButton.Pressed += delegate { LoadScene("res://scenes/game/game.tscn"); };
-		optionButton.Pressed += delegate { LoadScene("res://scenes/option_menu.tscn"); };
+		startButton.Pressed += delegate { GetNode<SceneManager>("/root/SceneManager").LoadScene("res://scenes/game.tscn"); };
+		optionButton.Pressed += delegate { GetNode<SceneManager>("/root/SceneManager").LoadScene("res://scenes/option_menu.tscn"); };
 		quitButton.Pressed += Quit;
     }
-
-    // public void LoadScene(PackedScene scene){
-	// 	GetTree().ChangeSceneToPacked(scene);
-	// }
-	
-	public void LoadScene(string path){
-		GetTree().ChangeSceneToFile(path);
-	}
 
 	public void Quit(){
 		GetTree().Quit();

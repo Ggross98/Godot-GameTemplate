@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://b00fron1nsucu"]
+[gd_scene load_steps=8 format=3 uid="uid://b00fron1nsucu"]
 
-[ext_resource type="Script" uid="uid://dwrphyiyxbew8" path="res://scripts/scenes/Game.cs" id="1_b1ya7"]
-[ext_resource type="PackedScene" uid="uid://enxwj3m6n8w4" path="res://scenes/main_menu.tscn" id="2_qf2ok"]
-[ext_resource type="Script" uid="uid://dqemowvmy4b47" path="res://scripts/ui/PausePanel.cs" id="2_t5eu8"]
-[ext_resource type="PackedScene" uid="uid://d3cx2qnoetlnw" path="res://scenes/option_panel.tscn" id="3_ludgr"]
+[ext_resource type="Script" uid="uid://dwrphyiyxbew8" path="res://scripts/scenes/Game.cs" id="1_lbhrr"]
+[ext_resource type="Script" uid="uid://dqemowvmy4b47" path="res://scripts/ui/PausePanel.cs" id="3_p57ef"]
+[ext_resource type="PackedScene" uid="uid://d3cx2qnoetlnw" path="res://prefabs/option_panel.tscn" id="4_u5sy4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ikkcl"]
 font_size = 80
@@ -27,8 +26,7 @@ bg_color = Color(0.18359, 0.18359, 0.18359, 1)
 default_font_size = 50
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("pauseButton", "pausePanel")]
-script = ExtResource("1_b1ya7")
-mainMenu = ExtResource("2_qf2ok")
+script = ExtResource("1_lbhrr")
 pauseButton = NodePath("TopUI/PauseButton")
 pausePanel = NodePath("PausePanel")
 
@@ -61,7 +59,7 @@ visible = false
 offset_right = 1920.0
 offset_bottom = 1080.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ckiqj")
-script = ExtResource("2_t5eu8")
+script = ExtResource("3_p57ef")
 resumeButton = NodePath("Buttons/ResumeButton")
 restartButton = NodePath("Buttons/RestartButton")
 optionButton = NodePath("Buttons/OptionButton")
@@ -112,7 +110,7 @@ label_settings = SubResource("LabelSettings_ikkcl")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="OptionPanel" parent="PausePanel" instance=ExtResource("3_ludgr")]
+[node name="OptionPanel" parent="PausePanel" instance=ExtResource("4_u5sy4")]
 visible = false
 layout_mode = 0
 offset_top = 201.0
