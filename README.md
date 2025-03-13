@@ -1,6 +1,7 @@
-# Godot-GameTemplate-Menu
+# Godot-Game-Template
 Currently, most of the Godot tutorials and templates are developed using gdscript. I created this repository to help people who want to develop games with C#, especially those who are transitioning from Unity to Godot.
 ## Contents
+* The project is built for Godot 4.4 and .Net 8.0.    
 * A simple main menu and scene switch method.
   ![](screenshots/menu.png)
     
@@ -13,5 +14,5 @@ Currently, most of the Godot tutorials and templates are developed using gdscrip
   ![](screenshots/pause.png)
     
 ## How to use
-* Clone the project and open .project file with Godot 4.3.
+* Clone the project and open .project file with Godot.
 * No addons or plugins are required.
