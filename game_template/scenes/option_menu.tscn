@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://buthbv8l20tte"]
+[gd_scene load_steps=5 format=3 uid="uid://buthbv8l20tte"]
 
-[ext_resource type="Script" uid="uid://bgo1tfawxs4i5" path="res://scripts/scenes/OptionMenu.cs" id="1_r3baq"]
-[ext_resource type="PackedScene" uid="uid://enxwj3m6n8w4" path="res://scenes/main_menu.tscn" id="2_828mt"]
+[ext_resource type="Script" uid="uid://bgo1tfawxs4i5" path="res://scripts/scenes/OptionMenuSceneController.cs" id="1_r3baq"]
 [ext_resource type="PackedScene" uid="uid://d3cx2qnoetlnw" path="res://prefabs/option_panel.tscn" id="3_0y5xg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_q6boq"]
@@ -19,14 +18,17 @@ cache/0/50/0/underline_position = 0.0
 cache/0/50/0/underline_thickness = 0.0
 cache/0/50/0/scale = 1.0
 
-[node name="OptionMenu" type="Control" node_paths=PackedStringArray("backButton")]
+[node name="OptionMenu" type="Node2D" node_paths=PackedStringArray("backButton")]
+script = ExtResource("1_r3baq")
+backButton = NodePath("UI/BackButton")
+
+[node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_r3baq")
-mainMenu = ExtResource("2_828mt")
-backButton = NodePath("BackButton")
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Title" type="Label" parent="."]
+[node name="Title" type="Label" parent="UI"]
 layout_mode = 0
 offset_top = 40.0
 offset_right = 1920.0
@@ -36,7 +38,7 @@ label_settings = SubResource("LabelSettings_q6boq")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BackButton" type="Button" parent="."]
+[node name="BackButton" type="Button" parent="UI"]
 layout_mode = 0
 offset_right = 200.0
 offset_bottom = 100.0
@@ -44,7 +46,7 @@ theme_override_fonts/font = SubResource("FontFile_17bxw")
 theme_override_font_sizes/font_size = 50
 text = "Back"
 
-[node name="OptionPanel" parent="." instance=ExtResource("3_0y5xg")]
+[node name="OptionPanel" parent="UI" instance=ExtResource("3_0y5xg")]
 layout_mode = 0
 offset_top = 173.0
 offset_bottom = 973.0

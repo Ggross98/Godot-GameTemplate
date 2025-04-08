@@ -3,7 +3,7 @@ using Godot.Collections;
 using System;
 using System.Collections.Generic;
 
-public partial class Game : Node2D
+public partial class GameSceneController : SceneController
 {
 	[Export] private Button pauseButton;
     [Export] private PausePanel pausePanel;
@@ -33,7 +33,7 @@ public partial class Game : Node2D
     }
 
     public void Quit(){
-        GetNode<SceneManager>("/root/SceneManager").LoadScene("res://scenes/main_menu.tscn");
+        sceneManager.LoadScene("res://scenes/main_menu.tscn");
     }
 
 }
