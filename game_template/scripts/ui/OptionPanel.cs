@@ -1,7 +1,5 @@
 using Godot;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+using Godot.Collections;
 
 public partial class OptionPanel : Panel
 {
@@ -10,7 +8,7 @@ public partial class OptionPanel : Panel
     [Export] private TextureButton fullScreenButton, musicMuteButton, soundMuteButton;
 
     private ConfigManager configManager;
-	private List<Vector2I> resolutions;
+	private Array<Vector2I> resolutions;
 
     public override void _Ready()
     {
@@ -22,7 +20,7 @@ public partial class OptionPanel : Panel
 
 	public void LoadOptions(){
 
-        List<Vector2I> defaultResolutions = new List<Vector2I>(){
+        var defaultResolutions = new Array<Vector2I>(){
             new Vector2I(2560, 1440),
             new Vector2I(1920, 1080),
             new Vector2I(1600, 900),
@@ -65,7 +63,7 @@ public partial class OptionPanel : Panel
     //     DisplayServer.WindowSetMode(fullscreen ?  displayFullScreen : displayWindowed);
     // }
 
-	public void LoadResolutions(List<Vector2I> _resolutions){
+	public void LoadResolutions(Array<Vector2I> _resolutions){
 		resolutions = _resolutions;
 
 		var currentRes = GetWindow().Size;

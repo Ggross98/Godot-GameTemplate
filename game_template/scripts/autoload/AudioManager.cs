@@ -1,11 +1,10 @@
 using Godot;
-using System;
-using System.Collections.Generic;
+using Godot.Collections;
 
 public partial class AudioManager : Node
 {
     private const string MUSIC_BUS = "Music", SOUND_BUS = "Sound";
-    private List<AudioStreamPlayer> musicPlayers, soundPlayers;
+    private Array<AudioStreamPlayer> musicPlayers, soundPlayers;
     private int currentMusicPlayer;
     private const int DEFAULT_SOUND_PLAYER_COUNT = 10;
 
@@ -85,7 +84,7 @@ public partial class AudioManager : Node
     }
 
     private void LoadMusicManager(){
-        musicPlayers = new List<AudioStreamPlayer>();
+        musicPlayers = new Array<AudioStreamPlayer>();
         for(int i = 0; i < 2; i++){
             var audioPlayer = new AudioStreamPlayer();
             audioPlayer.Name = "MusicPlayer_" + i;
@@ -99,7 +98,7 @@ public partial class AudioManager : Node
     }
 
     private void LoadSoundManager(){
-        soundPlayers = new List<AudioStreamPlayer>();
+        soundPlayers = new Array<AudioStreamPlayer>();
         for(int i = 0; i < DEFAULT_SOUND_PLAYER_COUNT; i++){
             AddSoundPlayer();
         }
@@ -108,7 +107,7 @@ public partial class AudioManager : Node
     private AudioStreamPlayer AddSoundPlayer(){
 
         if(soundPlayers == null){
-            soundPlayers = new List<AudioStreamPlayer>();
+            soundPlayers = new Array<AudioStreamPlayer>();
         }
 
         var audioPlayer = new AudioStreamPlayer();
